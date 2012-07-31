@@ -5,4 +5,5 @@ class Article < ActiveRecord::Base
 
   scope :blogable,        lambda { includes(:article_type).merge ArticleType.blogable        }
   scope :blogable_flawed, lambda { includes(:article_type).merge ArticleType.blogable_flawed }
+  scope :blogable_joins,  lambda { joins(:article_type).merge    ArticleType.blogable_flawed }
 end
